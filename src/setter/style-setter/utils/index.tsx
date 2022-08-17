@@ -31,9 +31,30 @@ export function getPlaceholderPropertyValue(field: any, property: string) {
   return propertyValue;
 }
 
-export function removeUnit(value: string) {
+export function getUnit(value: string) {
+  let t = 0
   if (value != undefined && value != null) {
-    return parseInt(value);
+    t = parseInt(value) || 0;
+    console.log(value,t)
+    return value.toString().replace(t.toString(), '')
+  }
+
+  return null;
+}
+
+
+export function removeUnit (value: string, allow: Array<string> = [], empty = '') {
+  const unit = getUnit(value) || ''
+  // if(unit==='%' && allow?.length>0) {
+  //   debugger
+  // }
+  if (value === 'auto' || (unit && allow.includes(unit))) {
+    return value;
+  }
+  if (value != undefined && value != null) {
+    const t = parseInt(value)
+    return isNaN(t) ? empty : t;
+    // return t === NaN ? empty : t;
   }
 
   return null;

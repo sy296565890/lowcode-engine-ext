@@ -82,6 +82,7 @@ export default class StyleSetterV2 extends React.PureComponent<StyleSetterProps>
    */
   onStyleChange = (styleDataList: Array<StyleData>) => {
     const { onChange } = this.props;
+    console.error('......LK.............', styleDataList)
     let styleData: StyleData | any = Object.assign({}, this.state.styleData);
     styleDataList &&
       styleDataList.map((item) => {
@@ -112,7 +113,7 @@ export default class StyleSetterV2 extends React.PureComponent<StyleSetterProps>
   render() {
     const { isShowCssCode, showModuleList } = this.props;
     const { styleData, cssCodeVisiable, initFlag } = this.state;
-    console.log('styleData', styleData);
+    console.log('styleData', styleData, this.props);
 
     return (
       <ConfigProvider>
