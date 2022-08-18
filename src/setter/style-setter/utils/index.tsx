@@ -34,7 +34,7 @@ export function getPlaceholderPropertyValue(field: any, property: string) {
 export function getUnit(value: string) {
   let t = 0
   if (value != undefined && value != null) {
-    t = parseInt(value) || 0;
+    t = parseFloat(value) || 0;
     console.log(value,t)
     return value.toString().replace(t.toString(), '')
   }
@@ -52,7 +52,7 @@ export function removeUnit (value: string, allow: Array<string> = [], empty = ''
     return value;
   }
   if (value != undefined && value != null) {
-    const t = parseInt(value)
+    const t = parseFloat(value)
     return isNaN(t) ? empty : t;
     // return t === NaN ? empty : t;
   }
