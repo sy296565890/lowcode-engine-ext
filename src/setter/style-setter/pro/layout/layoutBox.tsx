@@ -3,6 +3,7 @@ import './index.less';
 import { Input } from '@alifd/next';
 import { StyleData, onStyleChange } from '../../utils/types';
 import { addUnit, removeUnit } from '../../utils';
+import NoBorderInput from '../../components/noborder-input';
 
 const KEY_ARROW_DOWN = 'ArrowDown';
 const KEY_ARROW_UP = 'ArrowUp';
@@ -63,14 +64,20 @@ export default (props: layoutBoxProps) => {
       {layoutPropsConfig.isShowMargin && (
         <>
           <div className="margin-top-div">
-            <Input
+            <NoBorderInput className="next-noborder"
+              placeholder="0"
+              styleKey='marginTop'
+              unit={unit}
+              onChange={(val) => onInputChange('marginTop', val)}
+            />
+            {/* <Input
               className="next-noborder"
               placeholder="0"
               maxLength={3}
               value={removeUnit(styleData['marginTop'])}
               onChange={(val) => onInputChange('marginTop', val)}
               onKeyDown={(e) => onInputKeyDown(e.key, 'marginTop')}
-            ></Input>
+            ></Input> */}
           </div>
           <div className="margin-right-div">
             <Input

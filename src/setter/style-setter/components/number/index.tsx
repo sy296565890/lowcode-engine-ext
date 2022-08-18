@@ -98,7 +98,7 @@ export default (props: numberProps) => {
     max={isEmptyValue(max) ? Number.MAX_SAFE_INTEGER : max}
     onChange={(val) => onNumberChange(styleKey, val, _unit === 'auto' ? 'px' : _unit)}
     alwaysShowTrigger
-    precision={6}
+    precision={3}
     upBtnProps={{
       style: { width: '12px'},
       iconSize: 5,
